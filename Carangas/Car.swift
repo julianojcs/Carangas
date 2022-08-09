@@ -21,15 +21,9 @@ class Car: Codable {
         case 1:
             return "Alcohol"
         case 2:
-            return "Diesel"
-        case 3:
-            return "Bio-Diesel"
-        case 4:
             return "Petrol"
-        case 5:
-            return "Compressed Natural Gas"
-        case 6:
-            return "Liquid Petroleum Gas"
+        case 3:
+            return "Diesel"
         default:
             return "Eletricity"
         }

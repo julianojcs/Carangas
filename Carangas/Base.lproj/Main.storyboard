@@ -82,7 +82,7 @@
             </objects>
             <point key="canvasLocation" x="120.8" y="206.89655172413794"/>
         </scene>
-        <!--Cadastro-->
+        <!--New Car-->
         <scene sceneID="f4M-Z6-jYD">
             <objects>
                 <viewController id="sps-2I-JHC" customClass="CarFormViewController" customModule="Carangas" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,17 +96,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iKP-Hn-vIA">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="157"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Marca" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pAM-t8-BPx">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pAM-t8-BPx">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ONH-vd-YNI">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ONH-vd-YNI">
                                                 <rect key="frame" x="0.0" y="42" width="327" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Preço" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iok-qG-zhh">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iok-qG-zhh">
                                                 <rect key="frame" x="0.0" y="84" width="327" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -116,7 +116,9 @@
                                                 <segments>
                                                     <segment title="Flex"/>
                                                     <segment title="Álcool"/>
-                                                    <segment title="Gasolina"/>
+                                                    <segment title="Petrol"/>
+                                                    <segment title="Diesel"/>
+                                                    <segment title="Eletricity"/>
                                                 </segments>
                                             </segmentedControl>
                                         </subviews>
@@ -127,7 +129,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="vbr-7t-Cbi"/>
                                         </constraints>
-                                        <state key="normal" title="Cadastrar Carro">
+                                        <state key="normal" title="Save New Car">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -150,8 +152,9 @@
                             <constraint firstItem="dF2-nO-RTe" firstAttribute="leading" secondItem="E6h-03-Zlc" secondAttribute="leading" constant="24" id="qOg-LN-sc2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cadastro" id="Bla-FH-Id2"/>
+                    <navigationItem key="navigationItem" title="New Car" id="Bla-FH-Id2"/>
                     <connections>
+                        <outlet property="buttonAddEdit" destination="C4J-1n-Ias" id="Spe-dX-bOf"/>
                         <outlet property="segmentedControlGasType" destination="Q1O-Ci-O90" id="P2g-ub-LAX"/>
                         <outlet property="textFieldBrand" destination="pAM-t8-BPx" id="Uru-8i-eQS"/>
                         <outlet property="textFieldName" destination="ONH-vd-YNI" id="MDa-dy-XaJ"/>
@@ -170,13 +173,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPM-4E-1zf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPM-4E-1zf">
                                 <rect key="frame" x="24" y="160" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" name="main"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Combustível:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLC-rY-1z4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLC-rY-1z4">
                                 <rect key="frame" x="24" y="185" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -206,6 +209,11 @@
                     <navigationItem key="navigationItem" title="Caranga" id="q60-by-Tky">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="SP2-HC-hX3"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="labelBrand" destination="JPM-4E-1zf" id="6rU-Jh-cih"/>
+                        <outlet property="labelGasType" destination="tLC-rY-1z4" id="8kR-bi-TlV"/>
+                        <outlet property="labelPrice" destination="ASd-qQ-Vnm" id="N9c-Rf-QC4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uuz-Tm-yFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

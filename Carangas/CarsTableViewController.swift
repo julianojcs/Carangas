@@ -12,8 +12,18 @@ class CarsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadCars()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let carViewController = segue.destination as? CarViewController,
+           let row = tableView.indexPathForSelectedRow?.row {
+            carViewController.car = cars[row]
+        }
     }
 
     // MARK: - Table view data source
@@ -21,7 +31,7 @@ class CarsTableViewController: UITableViewController {
         CarAPI().loadCars {[weak self] result in
             switch result {
             case .success(let cars):
-                cars.forEach({print($0.name)})
+//                cars.forEach({print($0.name)})
                 self?.cars = cars
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
@@ -65,18 +75,24 @@ class CarsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let car = cars[indexPath.row]
+            CarAPI().deleteCar(car) { result in
+                switch result {
+                case .success:
+                    self.cars.remove(at: indexPath.row)
+                    DispatchQueue.main.async {
+                        tableView.reloadData()
+                    }
+                case .failure:
+                    print("Delete failure")
+                }
+            }
+        }
     }
-    */
-
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
